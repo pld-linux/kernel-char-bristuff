@@ -10,7 +10,7 @@
 %endif
 
 %define		rel	0.1
-%define		ver	0.3.0-PRE-1y-k
+%define		ver	0.3.0-PRE-1y-m
 %define		ver2	%(echo %ver | tr '-' '_')
 
 Summary:	Linux driver for bristuff
@@ -21,7 +21,7 @@ Release:	%{rel}@%{_kernel_ver_str}
 License:	GPL
 Group:		Base/Kernel
 Source0:	http://212.91.251.199/~junghanns.net/downloads/bristuff-%{ver}.tar.gz
-# Source0-md5:	2c45a1955703b7f208310a9dd0a6b1f1
+# Source0-md5:	f198765838587c918d7d2c94b73e3b0b
 URL:		http://212.91.251.199/~junghanns.net/downloads/
 %if %{with kernel}
 %{?with_dist_kernel:BuildRequires:	kernel%{_alt_kernel}-module-build >= 3:2.6.20.2}
@@ -57,7 +57,7 @@ done
 %if %{with kernel}
 	for i in ztgsm qozap cwain zaphfc;
 	do
-		%build_kernel_modules -C $i -m $i
+		%build_kernel_modules -C $i -m $i KBUILD_MODPOST_WARN=1
 	done
 %endif
 
