@@ -13,8 +13,8 @@
 %define		ver	0.3.0-PRE-1y-m
 %define		ver2	%(echo %ver | tr '-' '_')
 
-Summary:	Linux driver for bristuff
-Summary(pl.UTF-8):	Sterownik linuksa do bristuff
+Summary:	BRIstuff - Linux driver for Junghanns.NET BRI ISDN adapters
+Summary(pl.UTF-8):	BRIstuff - sterownik dla Linuksa do kart ISDN Junghanns.NET BRI
 Name:		kernel%{_alt_kernel}-char-bristuff
 Version:	%{ver2}
 Release:	%{rel}@%{_kernel_ver_str}
@@ -22,7 +22,7 @@ License:	GPL
 Group:		Base/Kernel
 Source0:	http://212.91.251.199/~junghanns.net/downloads/bristuff-%{ver}.tar.gz
 # Source0-md5:	f198765838587c918d7d2c94b73e3b0b
-URL:		http://212.91.251.199/~junghanns.net/downloads/
+URL:		http://www.junghanns.net/
 %if %{with kernel}
 %{?with_dist_kernel:BuildRequires:	kernel%{_alt_kernel}-module-build >= 3:2.6.20.2}
 BuildRequires:	rpmbuild(macros) >= 1.379
@@ -36,14 +36,10 @@ Requires(postun):	%releq_kernel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-This is driver for bristuff for Linux.
-
-This package contains Linux module.
+BRIstuff - Linux kernel driver for Junghanns.NET BRI ISDN adapters.
 
 %description -l pl.UTF-8
-Sterownik dla Linuksa do bristuff.
-
-Ten pakiet zawiera moduł jądra Linuksa.
+BRIstuff - sterownik jądra Linuksa do kart ISDN Junghanns.NET BRI.
 
 %prep
 %setup -q -n bristuff-%{ver}
