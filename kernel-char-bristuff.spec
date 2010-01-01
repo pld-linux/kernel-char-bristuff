@@ -27,7 +27,7 @@ URL:		http://www.junghanns.net/
 %{?with_dist_kernel:BuildRequires:	kernel%{_alt_kernel}-module-build >= 3:2.6.20.2}
 BuildRequires:	rpmbuild(macros) >= 1.379
 %endif
-Buildrequires:	zaptel-devel(bristuff)
+BuildRequires:	zaptel-devel(bristuff)
 Requires(post,postun):	/sbin/depmod
 %if %{with dist_kernel}
 %requires_releq_kernel
